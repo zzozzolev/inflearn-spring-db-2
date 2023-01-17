@@ -29,7 +29,7 @@ public class JdbcTemplateItemRepositoryV1 implements ItemRepository {
 
     @Override
     public Item save(Item item) {
-        String sql = "INSERT INFO item(item_name, price, quantity) VALUES (?, ?, ?)";
+        String sql = "INSERT INTO item(item_name, price, quantity) VALUES (?, ?, ?)";
         KeyHolder keyHolder = new GeneratedKeyHolder();
         template.update(con -> {
             PreparedStatement ps = con.prepareStatement(sql, new String[]{"id"});
