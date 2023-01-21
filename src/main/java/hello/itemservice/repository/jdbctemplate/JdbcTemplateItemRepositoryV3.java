@@ -13,8 +13,6 @@ import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
-import org.springframework.jdbc.support.GeneratedKeyHolder;
-import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.util.StringUtils;
 
 import javax.sql.DataSource;
@@ -52,6 +50,7 @@ public class JdbcTemplateItemRepositoryV3 implements ItemRepository {
                 .addValue("price", updateParam.getPrice())
                 .addValue("quantity", updateParam.getQuantity())
                 .addValue("id", itemId);
+        template.update(sql, mapSqlParameterSource);
     }
 
     @Override
