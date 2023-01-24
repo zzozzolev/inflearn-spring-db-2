@@ -9,7 +9,7 @@ import java.util.List;
 
 public interface SpringDataJpaItemRepository extends JpaRepository<Item, Long> {
 
-    List<Item> findByItemNameLike(@Param("itemName") String itemName);
+    List<Item> findByItemNameLike(String itemName);
 
     List<Item> findByPriceLessThanEqual(Integer price);
 
